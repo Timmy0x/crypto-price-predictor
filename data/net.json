@@ -1,0 +1,71 @@
+{
+    "type": "NeuralNetworkGPU",
+    "sizes": [
+        2,
+        3,
+        1
+    ],
+    "layers": [
+        {
+            "weights": [],
+            "biases": []
+        },
+        {
+            "weights": [
+                [
+                    -2.945455551147461,
+                    0.17644928395748138
+                ],
+                [
+                    -3.5580568313598633,
+                    -0.05785447359085083
+                ],
+                [
+                    -3.601860284805298,
+                    0.17886212468147278
+                ]
+            ],
+            "biases": [
+                0.41372591257095337,
+                0.8328490257263184,
+                0.8703843355178833
+            ]
+        },
+        {
+            "weights": [
+                [
+                    2.5852138996124268,
+                    3.4852328300476074,
+                    3.503291130065918
+                ]
+            ],
+            "biases": [
+                -3.12290096282959
+            ]
+        }
+    ],
+    "inputLookup": null,
+    "inputLookupLength": 0,
+    "outputLookup": null,
+    "outputLookupLength": 0,
+    "options": {
+        "inputSize": 0,
+        "outputSize": 0,
+        "binaryThresh": 0.5
+    },
+    "trainOpts": {
+        "activation": "sigmoid",
+        "iterations": 1000,
+        "errorThresh": 0.005,
+        "log": true,
+        "logPeriod": 10,
+        "leakyReluAlpha": 0.01,
+        "learningRate": 0.3,
+        "momentum": 0.1,
+        "callbackPeriod": 10,
+        "timeout": "Infinity",
+        "beta1": 0.9,
+        "beta2": 0.999,
+        "epsilon": 1e-08
+    }
+}

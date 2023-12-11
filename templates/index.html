@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <title>Bitcoin Price Predictions</title>
+
+        <script src="https://unpkg.com/brain.js"></script>
+        <script src="/scripts/index.js" defer></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/styles/loader.css">
+
+        <style>
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+
+                margin: 0;
+                padding: 0;
+            }
+
+            mark {
+                padding-top: 1.4%;
+                padding-bottom: 1.4%;
+                padding-left: 3%;
+                padding-right: 3%;
+
+                background-color: lightblue;
+
+                border-radius: 20px;
+
+                font-size: 1.8rem;
+            }
+
+            #main {
+                display: grid;
+                grid-template-columns: repeat(10, 1fr);
+                grid-template-rows: repeat(10, 1fr);
+
+                width: 100%;
+                height: 100%;
+
+                background-color: aliceblue;
+            }
+
+            #title {
+                grid-row: 2;
+                grid-column: 1 / span 4;
+
+                margin-left: 15%;
+            }
+            #title h1 {
+                font-weight: lighter;
+            }
+            #title mark {
+                cursor: pointer;
+            }
+            #title mark:hover {
+                text-decoration: underline;
+            }
+
+            #price {
+                grid-row: 3 / span 5;
+                grid-column: 1 / span 4;
+
+                overflow-x: scroll;
+                overflow-y: scroll;
+
+                padding: 4%;
+                padding-top: 1%;
+                margin-left: 15%;
+
+                border-radius: 30px;
+                border: 1px lightgrey solid;
+            }
+            #price h1 {
+                font-size: 3rem !important;
+            }
+            #price h1.lightgreen mark {
+                background-color: aquamarine;
+            }
+            #price h1.lightred mark {
+                background-color: lightcoral;
+            }
+
+            #refresh {
+                grid-row: 10;
+                grid-column: 2 / span 3;
+
+                height: 75%;
+
+                background-color: white;
+
+                border: 1px lightgrey solid;
+                border-radius: 30px;
+            }
+            #refresh:hover {
+                background-color: whitesmoke;
+
+                cursor: pointer;
+            }
+
+            #loader {
+                grid-row: 3 / span 5;
+                grid-column: 1 / span 4;
+
+                padding: 4%;
+                padding-top: 1%;
+                margin-left: 15%;
+
+                border-radius: 30px;
+                border: 1px lightgrey solid;
+            }
+
+            #chart {
+                grid-row: 1 / span 10;
+                grid-column: 6 / span 10;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="main">
+            <div id="title">
+                <h1>Bitcoin <mark onclick="window.open('https://www.tradingview.com/chart/85rdc6CT/?symbol=CRYPTO%3ABTCUSD')">BTC/USD</mark></h1>
+            </div>
+            <div id="price" style="display: none;">
+                <h1 id="price-title"></h1>
+                <h2 id="price-prediction"></h2>
+                <p>Two-hour timeframe</p>
+            </div>
+            <button id="refresh" onclick="window.location.reload()">Refresh</button>
+
+            <div id="loader">
+                <div id="loader-element">
+                </div>
+            </div>
+
+            <div id="chart">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container" style="height:100%;width:100%">
+                    <div id="tradingview_34a5d" style="height:calc(100% - 32px);width:100%"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                    new TradingView.widget(
+                    {
+                    "autosize": true,
+                    "symbol": "COINBASE:BTCUSD",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "light",
+                    "style": "1",
+                    "locale": "en",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "container_id": "tradingview_34a5d"
+                }
+                    );
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+        </div>
+    </body>
+</html>
