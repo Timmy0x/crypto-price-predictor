@@ -49,4 +49,4 @@ def net_minmax():
     data = json.loads(open("data/data.json").read())["price"]
     return Response(json.dumps({"min": min(data.values()), "max": max(data.values())}, indent=4), mimetype="application/json")
 
-app.run(host="0.0.0.0", port=81, debug=True)
+app.run(host="0.0.0.0", port=80)
