@@ -99,7 +99,7 @@ async function retrain() {
     net = new brain.NeuralNetworkGPU();
     net.train(train, {
         log: true,
-        iterations: 1000
+        iterations: 10000
     })
 
     set = await fetch("/net/set", {
